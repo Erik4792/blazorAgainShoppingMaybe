@@ -29,13 +29,47 @@ header {
             color: #fff;
         }
 
-        header span.brand-second {
-            color: #ccc;
-        }
+/*.brand-second {
+    color: #ccc;
+    position: relative;
+    display: inline-block;*/ /* 'inline-block' or 'block', depending on your layout */
+/*}*/
 
-        header span.brand-third {
-            color: #61dafb;
-        }
+.brand-second {
+    color: #ccc;
+    position: relative;
+    display: inline-block; /* or 'block', depending on your layout */
+}
+
+    .brand-second::after {
+        color: #ccc;
+        content: "foo";
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: nowrap; /* Prevents the text from wrapping */
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+    }
+
+    .brand-second:hover::after {
+        visibility: visible;
+        opacity: 1;
+        position: relative; /* Changes position to relative on hover */
+    }
+
+    .brand-second:hover {
+        color: transparent; /* Makes the original text transparent on hover */
+    }
+
+
+
+
+
+header span.brand-third {
+    color: #61dafb;
+}
 
     header .navbar-item.nav-home {
         border: 3px solid transparent;
